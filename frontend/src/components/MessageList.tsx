@@ -1,8 +1,8 @@
-import type { MessageEntry } from './types'
-import Message from './Message'
-import { isObservable, Subscription, type BehaviorSubject } from 'rxjs'
 import { useCallback, useEffect, useState } from 'react'
+import { isObservable, Subscription, type BehaviorSubject } from 'rxjs'
 import messagesStore from '../store/messages.store'
+import Message from './Message'
+import type { MessageEntry } from './types'
 
 export default function MessageList(props: {
 	emptyMessage?: MessageEntry

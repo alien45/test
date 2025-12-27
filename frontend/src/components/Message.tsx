@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
-import type { MessageEntry } from './types'
 import { isStr } from '@superutils/core'
+import { useEffect, useState } from 'react'
 import { isObservable } from 'rxjs'
+import type { MessageEntry } from './types'
 
 export type MessageProps = MessageEntry & { onDelete?: (id: string) => void }
 export default function Message(message: MessageProps) {

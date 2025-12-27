@@ -1,17 +1,9 @@
 import { isFn } from '@superutils/core'
 import { BehaviorSubject } from 'rxjs'
 
-export const scrollToEl = (selector: string) => {
-	const el = document.querySelector(selector)
-	if (!el) return false
-
-	el.scrollTo({
-		top: el.scrollHeight,
-		behavior: 'smooth',
-	})
-	return true
-}
-
+/**
+ * Returns a callback that reads text stream from `fetch` `Response` into the provided RxJS subject
+ */
 export const streamResultToSubject =
 	(
 		subject: BehaviorSubject<string> | (() => BehaviorSubject<string>),

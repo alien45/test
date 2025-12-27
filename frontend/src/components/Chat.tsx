@@ -1,16 +1,15 @@
+import fetch, { FetchAs } from '@superutils/fetch'
+import { isStr } from '@superutils/core'
 import { useCallback, useEffect, useState } from 'react'
+import { BehaviorSubject } from 'rxjs'
+import messagesStore from '../store/messages.store'
+import { scrollToEl, streamResultToSubject } from '../utils'
 import MessageList from './MessageList'
 import type { MessageEntry } from './types'
-import fetch, { FetchAs } from '@superutils/fetch'
-import { BehaviorSubject } from 'rxjs'
-import { scrollToEl, streamResultToSubject } from '../util'
-import messagesStore from '../store/messages.store'
-import { isStr } from '@superutils/core'
 
 /** Read the API base URL from the .env file */
-// const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? location.origin
-
-const streamUrl = `${location.protocol}//${location.hostname}:3000/stream`
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? location.origin
+const streamUrl = `${apiBaseUrl}/stream`
 const chatEl = '#chat-container > div'
 
 /**
