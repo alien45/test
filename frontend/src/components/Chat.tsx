@@ -17,7 +17,7 @@ const chatEl = '#chat-container > div'
  * A debounced fetch client with POST method that will read the stream response
  * and add & update the incoming message entry automatically
  */
-const sendAndSaveMessage = fetch.post.deferred(
+const sendMessage = fetch.post.deferred(
 	{ delayMs: 300 }, // debounce duration
 	streamUrl,
 	undefined, // data to be provided on-submit
@@ -60,7 +60,7 @@ export default function Chat() {
 				setState({ loading: false })
 				setQuery('')
 			}
-			sendAndSaveMessage(
+			sendMessage(
 				{ query, duration: 5 },
 				{
 					interceptors: {
